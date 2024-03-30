@@ -1,0 +1,46 @@
+/*
+Thuộc tính text-decoration: Tạo line cho văn bản
++ none
++ underline
++ overline
++ line-through
+
+Thuộc tính text-transform: Chữ hoa, chữ thường
++ none
++ uppercase
++ lowercase
++ captitalize
+
+Thuộc tính letter-spacing
+
+Thuộc tính word-spacing
+
+Thuộc tính text-align: 
+- left
+- center
+- right
+- justify
+
+Lưu ý: Thuộc tính này sẽ căn chỉnh cả các thẻ inline: img, button, input,...
+*/
+body {
+  /* text-decoration: underline line-through overline; */
+  /* text-transform: capitalize; */
+  /* letter-spacing: 5px; */
+  /* word-spacing: 5px; */
+}
+
+h2 {
+  /* word-wrap: break-word; */
+  word-break: break-all;
+}
+
+p {
+  /* text-indent: 20px; */
+  text-align: center;
+  text-align-last: right;
+}
+
+.link {
+  text-align: center;
+}

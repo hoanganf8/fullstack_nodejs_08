@@ -1,0 +1,25 @@
+/*
+Background
+
+1. background-color
+2. background-image
+3. background-size
+4. background-position
+5. background-repeat
+6. background-attachment
+7. background
+
+Sự khác nhau giữa cover và contain trong background-size
+*/
+
+body {
+  height: 2000px;
+  background-color: aqua;
+  background-image: url("https://fastly.picsum.photos/id/361/536/354.jpg?hmac=DT_Qtz3GyrSJjKJNvAlZoKIS289ugrAgSaNENN5lCV4");
+  background-repeat: no-repeat;
+  /* background-position: center center; */
+  background-size: contain;
+}
+/* .content {
+  background-color: bisque;
+} */
