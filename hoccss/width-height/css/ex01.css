@@ -1,0 +1,51 @@
+/*
+Thuộc tính width: Thiết lập chiều rộng
+Thuộc tính height: Thiết lập chiều cao
+Thuộc tính min-width: Chiều rộng nhỏ nhất
+Thuộc tính max-width: Chiều rộng lớn nhất
+Thuộc tính min-height: Chiều cao nhỏ nhất
+Thuộc tính max-height: Chiều cao lớn nhất
+
+Đơn vị: 
+- vh (Viewport Height)
+- vw (Viewport Width)
+--> Tỷ với viewport (Khung nhìn)
+
+Lưu ý: Các thuộc tính kích thước chỉ hoạt động với thẻ block
+
+Thẻ inline có 2 loại: 
+- non-replace: a, span, b, i, u,...
+- replace --> img, iframe, video, input,...
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 2000px;
+}
+.box {
+  border: 1px solid red;
+  width: 100vw;
+  height: 100vh;
+}
+.box .content {
+  background: yellow;
+  /* width: 100vw; */
+}
+.box a {
+  border: 1px dotted red;
+  width: 100px;
+  height: 40px;
+  display: inline-block;
+}
+
+img {
+  width: 200px;
+}
+
+iframe {
+  width: 100%;
+  height: 400px;
+}
