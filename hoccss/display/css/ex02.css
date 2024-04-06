@@ -1,0 +1,36 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: 0;
+}
+ul {
+  width: 80%;
+  margin: 30px auto;
+  list-style: none;
+  background: green;
+  font-size: 0;
+}
+ul li {
+  display: inline-block;
+}
+ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 20px;
+  display: block;
+  font-size: initial;
+}
+/* ul li a {
+  border-right: 1px solid #fff;
+}
+
+ul li:last-child a {
+  border: 0;
+} */
+ul li + li a {
+  border-left: 1px solid #fff;
+}
+ul li a:hover {
+  background: red;
+}

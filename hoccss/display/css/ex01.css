@@ -1,0 +1,24 @@
+/*
+Thuộc tính display: Thay đổi cách hiển thị của thẻ html
+- none --> Ẩn (Mất không gian)
+- block --> Hiển thị kiểu block
+- inline --> Hiển thị kiểu inline
+- inline-block --> Hiển thị kiểu inline và block
+*/
+* {
+  padding: 0;
+  margin: 0;
+}
+.box {
+  display: block;
+}
+.content {
+  font-size: 0;
+}
+h2 {
+  background: green;
+  color: #fff;
+  display: inline-block;
+  padding: 20px 30px;
+  font-size: initial;
+}
