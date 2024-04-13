@@ -1,0 +1,49 @@
+/* h2 {
+  position: absolute;
+  height: 100px;
+}
+
+.red-color {
+  color: red;
+}
+
+.green-color {
+  color: green;
+  transition: ease 1s height;
+  overflow: hidden;
+}
+
+.box:hover .green-color {
+  height: 0;
+} */
+
+* {
+  padding: 0;
+  margin: 0;
+}
+h2 {
+  position: relative;
+  color: green;
+  font-size: 2.5rem;
+  margin-top: 50px;
+}
+
+h2 > span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 100%;
+  transition: top 0.3s ease;
+  overflow: hidden;
+}
+
+h2 > span > span {
+  background: yellow;
+  color: red;
+  position: absolute;
+  bottom: 0;
+}
+h2:hover > span {
+  top: 0;
+}
