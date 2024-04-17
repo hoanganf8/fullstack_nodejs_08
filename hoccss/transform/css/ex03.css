@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.box {
+  position: fixed;
+  inset: 0;
+  visibility: hidden;
+  transition: visibility 0.3s ease;
+}
+.box .box-inner {
+  background: #fff;
+  width: 200px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  position: fixed;
+  inset: 0 auto;
+  z-index: 1;
+  translate: -100%;
+  transition: translate 0.3s ease;
+}
+.box .overlay {
+  background: #0000006d;
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+input[type="checkbox"]:checked + .box {
+  visibility: visible;
+}
+
+input[type="checkbox"]:checked + .box .box-inner {
+  translate: 0;
+}
+
+input[type="checkbox"]:checked + .box .overlay {
+  opacity: 1;
+}
