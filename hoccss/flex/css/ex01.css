@@ -1,0 +1,107 @@
+/*
+Flex = Flexible Box Module
+- Kỹ thuật CSS
+- Chia layout trang web linh hoạt, đáp ứng các giao diện khác
+- Dễ dàng tùy biến trên các màn hình khác nhau (Responsive)
+
+1. Các thuộc tính trong nhóm flex container
+- display: flex | inline-flex --> Kích hoạt flex
+- flex-direction: Tùy chỉnh hướng của trục chính
++ row
++ row-reverse
++ column
++ column-reverse
+
+- justify-content: Căn chỉnh các item theo hướng song song với trục chính
++ flex-start
++ center
++ flex-end
++ space-around
++ space-between
++ space-evenly
++ start
++ end
+
+- flex-wrap: Wrap các item nếu bị tràn ra khỏi container
++ nowrap
++ wrap
++ wrap-reverse
+
+- align-items: Căn chỉnh các item theo chiều vuông góc với trục chính
++ stretch
++ flex-start
++ flex-end
++ center
++ baseline
+
+- align-content: 
++ stretch
++ flex-start
++ center
++ flex-end
++ space-around
++ space-between
++ space-evenly
++ start
++ end
+
+- gap: Khoảng cách giữa các item
+- row-gap: Khoảng cách giữa các hàng
+- column-gap: Khoảng cách giữa các cột
+
+2. Các thuộc tính trong nhóm flex item
+
+- flex-grow: number
+- flex-shrink: number
+- flex-basis: Thiết lập kích thước ban đầu của 1 item 
++ flex-basis bị chặn bởi min-width và max-width, min-height và max-height
+- flex: grow shrink basis
+- align-self: Căn chỉnh item cụ thể theo hướng vuông góc với trục chính (Các giá trị giống align-items)
+- order: Sắp xếp các item
+*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.box {
+  width: 400px;
+  height: 400px;
+  border: 1px solid red;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  /* flex-wrap: wrap; */
+  /* row-gap: 10px;
+  column-gap: 20px; */
+  /* align-content: stretch; */
+}
+.item {
+  padding: 15px;
+  background: green;
+  color: #fff;
+  border: 1px solid #fff;
+  min-width: 50px;
+  flex: 1 0 auto;
+  /* flex-basis: 40px; */
+  /* max-width: 60px; */
+  /* flex-shrink: 0; */
+  /* flex-grow: 1; */
+}
+/* .item:nth-child(2) {
+  flex-grow: 0.5;
+} */
+
+.item:nth-child(3) {
+  /* align-self: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  order: -1;
+}
+.item:nth-child(1) {
+  order: 1;
+}

@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.partners {
+  padding: 30px 50px;
+  width: 1000px;
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.partners .item {
+  text-align: center;
+}
+
+.partners img {
+  max-height: 55px;
+  width: auto;
+}
