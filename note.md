@@ -22,5 +22,17 @@ duong-dan --> Phụ thuộc vào thư mục đang đứng
 //tenmien.com/duong-dan
 https://tenmien.com/duong-dan
 
-
 Trang chủ: http://127.0.0.1:5500
+
+Độ ưu tiên trong CSS
+
+0. important
+1. inline
+2. id
+3. class
+4. tag
+
+Lưu ý:
+
+- Selector càng chi tiết --> Ưu tiên càng cao
+- Code ở bên dưới ưu tiên cao hơn

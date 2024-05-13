@@ -1,0 +1,35 @@
+/*
+Đổ bóng
+
+1. Khối
+box-shadow: h-offset v-offset blur spread color
+- h-offset: Vị trí của bóng theo chiều ngang
+- v-offset: Vị trí của bóng theo chiều dọc
+- blur: Độ nhòe
+- spread: Kích thước
+- color: Màu của bóng
+
+2. Text
+text-shadow: h-offset v-offset blue color
+*/
+.box {
+  width: 300px;
+  height: 300px;
+  background: green !important;
+  margin: 30px auto;
+  box-shadow: 5px 5px 5px red, 10px 10px 5px blueviolet, 15px 15px 5px blue;
+}
+
+h1 {
+  text-align: center;
+  /* text-shadow: 3px 3px 3px red; */
+  color: #fff;
+  font-size: 4rem;
+  text-shadow: 1px 1px 1px black, -1px -1px 1px black, 1px -1px 1px black,
+    -1px 1px 1px black, 1px 1px 1px black, -1px -1px 1px black,
+    1px -1px 1px black, -1px 1px 1px black;
+}
+
+#box {
+  background: red;
+}
