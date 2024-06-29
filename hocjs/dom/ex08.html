@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box ul {
+        display: none;
+      }
+      .box input:focus ~ ul {
+        display: block;
+      }
+      .menu {
+        width: 100px;
+        height: 100px;
+        background: green;
+        display: none;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://fullstack.edu.vn">F8</a>
+    <div class="box">
+      <input type="text" placeholder="Nhập từ khóa..." />
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+      </ul>
+    </div>
+    <div class="menu"></div>
+    <script src="js/ex08.js"></script>
+  </body>
+</html>
