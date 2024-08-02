@@ -39,7 +39,6 @@ h2 > span {
 }
 
 h2 > span > span {
-  background: yellow;
   color: red;
   position: absolute;
   bottom: 0;
