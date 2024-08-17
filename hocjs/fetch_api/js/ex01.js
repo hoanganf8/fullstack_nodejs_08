@@ -171,13 +171,16 @@ const handleAddUser = () => {
       const status = await addUser(formData);
       if (status) {
         //Thêm thành công
-        getUsers();
+        query._page = 1; //Chuyển về trang 1
+        query._order = "desc"; //Chuyển thành sắp xếp mới nhất
+        getUsers(query);
+        renderSort();
         form.reset();
       }
     } else {
       const status = await updateUser(id, formData);
       if (status) {
-        getUsers();
+        getUsers(query);
         switchFormAdd();
       }
     }
@@ -231,7 +234,12 @@ const handleDeleteUser = () => {
         alert("Đã có lỗi xảy ra");
         return;
       }
-      getUsers();
+      const remainUser = document.querySelectorAll("tbody tr").length - 1;
+      getUsers(query);
+      if (remainUser === 0 && query._page > 1) {
+        query._page--;
+        getUsers(query);
+      }
     }
   });
 };
@@ -255,6 +263,19 @@ const handleSearch = () => {
     })
   );
 };
+const renderSort = () => {
+  const btnSortEl = document.querySelector(".btn-sort");
+  btnSortEl.innerHTML = `
+    <button class="btn btn-primary btn-sm ${
+      query._order === "desc" ? "active" : ""
+    }" data-sort="latest">Mới nhất</button>
+    <button class="btn btn-primary btn-sm ${
+      query._order === "asc" ? "active" : ""
+    }" data-sort="oldest">
+      Cũ nhất
+    </button>
+    `;
+};
 const handleSort = () => {
   const btnSortEl = document.querySelector(".btn-sort");
   const allowed = ["latest", "oldest"];
@@ -265,11 +286,7 @@ const handleSort = () => {
       query._order = sortValue === "latest" ? "desc" : "asc";
       getUsers(query);
       //Xử lý giao diện
-      const btnActive = btnSortEl.querySelector(".active");
-      if (btnActive) {
-        btnActive.classList.remove("active");
-      }
-      e.target.classList.add("active");
+      renderSort();
     }
   });
 };
@@ -298,7 +315,7 @@ const handleNavigatePagination = () => {
 const query = {
   _sort: "id",
   _order: "desc",
-  _limit: 6,
+  _limit: 3,
   _page: 1,
 };
 getUsers(query);
@@ -309,3 +326,13 @@ handleDeleteUser();
 handleSearch();
 handleSort();
 handleNavigatePagination();
+renderSort();
+
+//Bình thường, các API sẽ ở trạng thái public
+//Tuy nhiên, muốn bảo vệ API ==> Cần phải thông qua các hình thức xác thực
+/*
+- API Key
+- Basic Auth
+- Bearer
+- OAuth 2.0
+*/
