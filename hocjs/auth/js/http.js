@@ -17,3 +17,37 @@ export const requestLogin = async (data) => {
     return false;
   }
 };
+
+export const requestProfile = async (accessToken) => {
+  try {
+    const response = await fetch(`${SERVER_API}/auth/profile`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    if (!response.ok) {
+      throw new Error("Unauthorize");
+    }
+    return response.json();
+  } catch {
+    return false;
+  }
+};
+
+export const requestRefreshToken = async (refreshToken) => {
+  try {
+    const response = await fetch(`${SERVER_API}/auth/refresh-token`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ refreshToken }),
+    });
+    if (!response.ok) {
+      throw new Error("Unauthorize");
+    }
+    return response.json();
+  } catch {
+    return false;
+  }
+};
