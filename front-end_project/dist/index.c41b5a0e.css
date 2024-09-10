@@ -1,0 +1,16 @@
+header {
+  background: #ff0;
+  padding: 20px 0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=index.c41b5a0e.css.map */
