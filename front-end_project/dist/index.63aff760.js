@@ -596,26 +596,40 @@ parcelHelpers.defineInteropFlag(exports);
 var _moment = require("moment");
 var _momentDefault = parcelHelpers.interopDefault(_moment);
 var _vi = require("moment/locale/vi");
+var _bootstrapMinCss = require("bootstrap/dist/css/bootstrap.min.css");
 var _appScss = require("./assets/app.scss");
 var _footer = require("./components/Footer");
 var _footerDefault = parcelHelpers.interopDefault(_footer);
 var _header = require("./components/Header");
 var _headerDefault = parcelHelpers.interopDefault(_header);
+var _appModuleScss = require("./assets/app.module.scss");
+var _appModuleScssDefault = parcelHelpers.interopDefault(_appModuleScss);
+var _configJson = require("./config.json");
+var _configJsonDefault = parcelHelpers.interopDefault(_configJson);
+var _6840478Png = require("./images/6840478.png");
+var _6840478PngDefault = parcelHelpers.interopDefault(_6840478Png);
+const { APP_NAME, API_KEY } = (0, _configJsonDefault.default);
 const App = ()=>{
     const createdAt = "2024-08-10 20:00:00";
     return `
   <div class="container">
     ${(0, _headerDefault.default)()}
-      <h1>H\u{1ECD}c JS r\u{1EA5}t d\u{1EC5}</h1>
+      <h1 class="${(0, _appModuleScssDefault.default).title}">H\u{1ECD}c JS r\u{1EA5}t d\u{1EC5}</h1>
       <h2>${(0, _momentDefault.default)().format("DD/MM/YYYY HH:mm:ss")}</h2>
       <h2>\u{110}\u{103}ng l\xfac: ${(0, _momentDefault.default)(createdAt).fromNow()}</h2>
+      <h2>${APP_NAME}</h2>
+      <h2>${API_KEY}</h2>
+      <h2>SERVER API: ${"http://localhost:4000"}</h2>
+      <h2>Env: ${"development"}</h2>
+      <div><img src="${0, _6840478PngDefault.default}" /></div>
+      <button class="btn btn-primary">\u{110}\u{103}ng k\xfd ngay</button>
     ${(0, _footerDefault.default)()}
   </div>
   `;
 };
 exports.default = App;
 
-},{"./components/Footer":"8pPOA","./components/Header":"hsJbF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./assets/app.scss":"eKksk","moment":"jwcsj","moment/locale/vi":"6Orob"}],"8pPOA":[function(require,module,exports) {
+},{"./components/Footer":"8pPOA","./components/Header":"hsJbF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./assets/app.scss":"eKksk","moment":"jwcsj","moment/locale/vi":"6Orob","bootstrap/dist/css/bootstrap.min.css":"i5LP7","./assets/app.module.scss":"fa0H3","./config.json":"8VeYg","./images/6840478.png":"2FUwd"}],"8pPOA":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 const Footer = ()=>{
@@ -659,14 +673,19 @@ exports.export = function(dest, destName, get) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _headerCss = require("../assets/header.css");
+var _headerModuleScss = require("../assets/header.module.scss");
+var _headerModuleScssDefault = parcelHelpers.interopDefault(_headerModuleScss);
 const Header = ()=>{
     return `<header>
-        <h2>Header</h2>
+        <h2 class="${(0, _headerModuleScssDefault.default).title}">Header</h2>
     </header>`;
 };
 exports.default = Header;
 
-},{"../assets/header.css":"bScjN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bScjN":[function() {},{}],"eKksk":[function() {},{}],"jwcsj":[function(require,module,exports) {
+},{"../assets/header.css":"bScjN","../assets/header.module.scss":"diptl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bScjN":[function() {},{}],"diptl":[function(require,module,exports) {
+module.exports["title"] = `nvALya_title`;
+
+},{}],"eKksk":[function() {},{}],"jwcsj":[function(require,module,exports) {
 //! moment.js
 //! version : 2.30.1
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -4497,6 +4516,50 @@ exports.default = Header;
     return vi;
 });
 
-},{"5c9fe7ed9cf89d97":"jwcsj"}]},["6DoTH","adjPd"], "adjPd", "parcelRequire1cfa")
+},{"5c9fe7ed9cf89d97":"jwcsj"}],"i5LP7":[function() {},{}],"fa0H3":[function(require,module,exports) {
+module.exports["title"] = `HAzRvW_title`;
+
+},{}],"8VeYg":[function(require,module,exports) {
+module.exports = JSON.parse('{"APP_NAME":"F8 Training","API_KEY":"ahihi"}');
+
+},{}],"2FUwd":[function(require,module,exports) {
+module.exports = require("8b86e918d37cbd13").getBundleURL("3gKDs") + "6840478.be4eacf5.png" + "?" + Date.now();
+
+},{"8b86e918d37cbd13":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}]},["6DoTH","adjPd"], "adjPd", "parcelRequire1cfa")
 
 //# sourceMappingURL=index.63aff760.js.map

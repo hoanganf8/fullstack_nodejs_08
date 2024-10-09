@@ -44,3 +44,18 @@ Ký hiệu viết tắt độ dài
 * ==> Tương ứng với {0,}
 ? ==> Tương ứng với {0,1}
 ```
+
+Hoặc (|) - Phủ định (^)
+
+Ký hiệu đại diện cho tất cả ký tự: .
+
+Các ký hiệu viết tắt
+
+```
+\w: Thường, hoa, số, _
+\W: Ngược lại của \w
+\d: Số
+\D: Ngược lại của số
+\s: Khoảng trắng
+\S: Ngược lại của \s
+```

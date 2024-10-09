@@ -1,14 +1,9 @@
-import { useState } from "react";
-import Counter from "./components/Counter";
+import TodoList from "./components/TodoList";
 
-const App = () => {
-  const [isShow, setShow] = useState(true);
+export default function App() {
   return (
     <div>
-      <button onClick={() => setShow(!isShow)}>Toggle</button>
-      {isShow && <Counter />}
+      <TodoList />
     </div>
   );
-};
-
-export default App;
+}
