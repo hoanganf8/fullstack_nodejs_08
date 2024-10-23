@@ -3,6 +3,7 @@ const getTodoList = async () => {
     cache: "force-cache",
     next: {
       tags: ["todo-list"],
+      // revalidate: 2000 //Tự động revalidate cache sau 1 khoảng thời gian đã thiết lập
     },
   });
   return response.json();
