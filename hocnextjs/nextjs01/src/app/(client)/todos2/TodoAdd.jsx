@@ -17,7 +17,7 @@ export default function TodoAdd() {
     if (response.ok) {
       const data = await response.json();
       mutate(
-        "/todos",
+        `${process.env.API_SERVER}/todos`,
         (prevData) => {
           return [...prevData, data];
         },

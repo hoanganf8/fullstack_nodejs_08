@@ -1,24 +1,38 @@
 {
   "todos": [
     {
-      "id": "3940",
-      "title": "Todo 1"
+      "title": "Todo 1",
+      "id": 1
     },
     {
-      "id": "7459",
-      "title": "Todo 2"
+      "title": "Todo 2",
+      "id": 2
     },
     {
-      "id": "0d29",
-      "title": "Todo 3"
+      "title": "Todo 3",
+      "id": 3
     },
     {
-      "id": "9c23",
-      "title": "Todo 4"
+      "title": "Todo 4",
+      "id": 4
+    }
+  ],
+  "todo-detail": [
+    {
+      "id": 1,
+      "content": "Todo 1 content"
     },
     {
-      "id": "7a3a",
-      "title": "Todo 5"
+      "id": 2,
+      "content": "Todo 2 content"
+    },
+    {
+      "id": 3,
+      "content": "Todo 3 content"
+    },
+    {
+      "id": 4,
+      "content": "Todo 4 content"
     }
   ]
 }
