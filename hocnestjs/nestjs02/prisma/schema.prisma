@@ -1,0 +1,74 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int              @id @default(autoincrement())
+  name       String           @db.VarChar(50)
+  email      String           @unique @db.VarChar(100)
+  password   String           @db.VarChar(100)
+  status     Boolean          @default(true)
+  created_at DateTime
+  updated_at DateTime
+  Phone      Phone?
+  posts      Post[]
+  courses    UsersOnCourses[]
+
+  @@map("users")
+}
+
+model Post {
+  id         Int      @id @default(autoincrement())
+  title      String   @db.VarChar(255)
+  content    String
+  user_id    Int
+  created_at DateTime
+  updated_at DateTime
+  user       User     @relation(fields: [user_id], references: [id])
+
+  @@map("posts")
+}
+
+model Phone {
+  id         Int      @id @default(autoincrement())
+  phone      String   @db.VarChar(15)
+  user_id    Int      @unique()
+  user       User     @relation(fields: [user_id], references: [id])
+  created_at DateTime
+  updated_at DateTime
+
+  @@map("phones")
+}
+
+model Course {
+  id         Int              @id @default(autoincrement())
+  name       String
+  created_at DateTime
+  updated_at DateTime
+  users      UsersOnCourses[]
+
+  @@map("courses")
+}
+
+model UsersOnCourses {
+  id         Int      @id @default(autoincrement())
+  course_id  Int
+  user_id    Int
+  course     Course   @relation(fields: [course_id], references: [id])
+  user       User     @relation(fields: [user_id], references: [id])
+  created_at DateTime
+  updated_at DateTime
+
+  @@map("users_courses")
+}
