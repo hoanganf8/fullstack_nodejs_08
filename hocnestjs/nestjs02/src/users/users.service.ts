@@ -99,4 +99,71 @@ export class UsersService {
       },
     });
   }
+
+  getCourses(id: number) {
+    return this.prisma.user.findFirst({
+      where: {
+        id,
+        // courses: {
+        //   some: {
+        //     course: {
+        //       name: {
+        //         contains: 'Next',
+        //       },
+        //     },
+        //   },
+        // },
+      },
+      include: {
+        courses: {
+          include: { course: true },
+        },
+      },
+    });
+  }
+
+  addCourse(body: any, userId: number) {
+    const courses = body.map((item: any) => {
+      return {
+        created_at: new Date(),
+        updated_at: new Date(),
+        course: {
+          connect: {
+            id: +item,
+          },
+        },
+      };
+    });
+    return this.prisma.user.update({
+      where: { id: userId },
+      data: {
+        courses: {
+          create: courses,
+        },
+      },
+    });
+  }
+
+  updateCourses(body: any, userId: number) {
+    const courses = body.map((item: any) => {
+      return {
+        created_at: new Date(),
+        updated_at: new Date(),
+        course: {
+          connect: {
+            id: +item,
+          },
+        },
+      };
+    });
+    return this.prisma.user.update({
+      where: { id: userId },
+      data: {
+        courses: {
+          deleteMany: {}, //Xóa tất cả courses của user
+          create: courses, //Thêm mới
+        },
+      },
+    });
+  }
 }

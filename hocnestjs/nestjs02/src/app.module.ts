@@ -9,6 +9,8 @@ import { AuthMiddleware } from './middlewares/auth/auth.middleware';
 import { AuthService } from './modules/auth/auth.service';
 import { PrismaService } from './db/prisma.service';
 import { PhonesModule } from './modules/phones/phones.module';
+import { CoursesModule } from './modules/courses/courses.module';
+import { RolesModule } from './modules/admin/roles/roles.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { PhonesModule } from './modules/phones/phones.module';
     UsersModule,
     AuthModule,
     PhonesModule,
+    CoursesModule,
+    RolesModule,
   ],
   controllers: [AppController],
   providers: [AppService, AuthService, PrismaService],

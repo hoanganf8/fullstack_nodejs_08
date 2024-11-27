@@ -25,3 +25,31 @@
 - Verify token
 - Thêm token vào blacklist
 - Trả về response
+
+## Permission System
+
+### Roles
+
+GET /roles --> Lấy danh sách roles
+
+POST /roles --> Thêm role mới
+Options: Thêm permission vào role, nếu permission không tồn tại tự động tạo permission mới
+
+PATCH /roles/{id} --> Sửa role
+Options: Cập nhật lại dữ liệu bảng trung gian roles_permissions
+
+DELETE /roles/{id} --> Xóa role (Xóa dữ liệu cả bảng trung gian)
+
+POST /roles/{id}/copy --> Copy role cũ sang role mới (Lưu ở bản nháp)
+
+### Users
+
+GET /users/{userId}/roles --> Danh sách roles theo userId
+
+PUT /users/{userId}/roles --> Cập nhật role cho 1 user
+
+DELETE /users/{userId}/roles --> Xóa tất cả roles của 1 user
+
+PUT /users/{userId}/permissions --> Thiết lập quyền riêng cho 1 user
+
+DELETE /users/{userId}/permissions --> Xóa hết quyền riêng của 1 user

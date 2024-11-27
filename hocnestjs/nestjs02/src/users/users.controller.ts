@@ -10,6 +10,7 @@ import {
   Query,
   Res,
   HttpStatus,
+  Put,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -219,5 +220,29 @@ export class UsersController {
   @Delete(':id/posts')
   removePosts(@Param('id') id: number) {
     return this.usersService.removePosts(+id);
+  }
+
+  @Get(':id/courses')
+  getCourses(@Param('id') id: number) {
+    return this.usersService.getCourses(+id);
+  }
+
+  @Post(':id/courses')
+  addCourses(@Param('id') id: number, @Body() body: any) {
+    if (!Array.isArray(body)) {
+      return { success: false, message: 'Body must be an array' };
+    }
+    return this.usersService.addCourse(body, +id);
+  }
+  @Put(':id/courses')
+  updateCourses(@Param('id') id: number, @Body() body: any) {
+    if (!Array.isArray(body)) {
+      return { success: false, message: 'Body must be an array' };
+    }
+    return this.usersService.updateCourses(body, +id);
+  }
+  @Delete(':id/courses')
+  deleteCourses(@Param('id') id: number) {
+    return this.usersService.updateCourses([], +id);
   }
 }
