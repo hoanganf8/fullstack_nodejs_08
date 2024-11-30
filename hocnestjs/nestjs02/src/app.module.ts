@@ -11,6 +11,7 @@ import { PrismaService } from './db/prisma.service';
 import { PhonesModule } from './modules/phones/phones.module';
 import { CoursesModule } from './modules/courses/courses.module';
 import { RolesModule } from './modules/admin/roles/roles.module';
+import { UsersModule as AdminUsersModule } from './modules/admin/users/users.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { RolesModule } from './modules/admin/roles/roles.module';
       // envFilePath: '.env',
     }),
     UsersModule,
+    AdminUsersModule,
     AuthModule,
     PhonesModule,
     CoursesModule,
@@ -36,6 +38,10 @@ export class AppModule {
       {
         path: 'auth/logout',
         method: RequestMethod.POST,
+      },
+      {
+        path: 'admin/users-permission',
+        method: RequestMethod.GET,
       },
     );
   }

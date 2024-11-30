@@ -1,9 +1,11 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpStatus,
   Param,
+  Patch,
   Post,
   Res,
 } from '@nestjs/common';
@@ -42,5 +44,23 @@ export class RolesController {
       permissions: permissionData,
     });
     return res.status(HttpStatus.OK).json({ success: true, data: role });
+  }
+  @Patch(':id')
+  updateRole(
+    @Param('id') id: number,
+    @Body() { name, status, permissions }: any,
+  ) {
+    return this.rolesService.updateRole(
+      {
+        name,
+        status,
+        permissions,
+      },
+      +id,
+    );
+  }
+  @Delete(':id')
+  removeRole(@Param('id') id: number) {
+    return this.rolesService.deleteRole(+id);
   }
 }

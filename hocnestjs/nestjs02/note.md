@@ -28,6 +28,8 @@
 
 ## Permission System
 
+NHÓM 1: Thiết lập quyền
+
 ### Roles
 
 GET /roles --> Lấy danh sách roles
@@ -53,3 +55,23 @@ DELETE /users/{userId}/roles --> Xóa tất cả roles của 1 user
 PUT /users/{userId}/permissions --> Thiết lập quyền riêng cho 1 user
 
 DELETE /users/{userId}/permissions --> Xóa hết quyền riêng của 1 user
+
+NHÓM 2: Kiểm tra quyền
+
+### Lấy tất cả permission của 1 user
+
+- Lấy permission của role được gán vào user
+- Lấy permission được gán vào trực tiếp vào user
+  ==> Lọc trùng
+
+## Vấn đề root khi phân quyền
+
+- Danh sách user --> Tạo 1 tài khoản root (Không xóa được)
+- Tạo role "Super Admin" --> Không thay đổi được
+
+## Tìm hiểu trước
+
+- Queue trong Back-End
+- Task Scheduler
+- Cronjob (Linux)
+- Concurrency
